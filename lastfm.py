@@ -33,8 +33,14 @@ data = r.json()
 
 trackName = data["track"]["name"]
 artistName = data["track"]["artist"]["name"]
-albumName = data["track"]["album"]["title"]
-genre = data["track"]["toptags"]["tag"][0]["name"]
+try: 
+    albumName = data["track"]["album"]["title"]
+except:
+    albumName = "not found"
+try:
+    genre = data["track"]["toptags"]["tag"][0]["name"]
+except:
+    genre = "not found"
 
 print("Track Name: "+trackName)
 print("Artist Name: "+artistName)
